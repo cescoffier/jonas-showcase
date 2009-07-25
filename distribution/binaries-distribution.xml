@@ -1,0 +1,61 @@
+<assembly>
+	<id>bin</id>
+	<formats>
+		<format>tar.gz</format>
+		<format>tar.bz2</format>
+		<format>zip</format>
+	</formats>
+	<fileSets>
+		<fileSet>
+			<includes>
+				<include>**/README*</include>
+				<include>**/LICENSE*</include>
+				<include>**/NOTICE*</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+		</fileSet>
+		<fileSet> <!--  Include the interfaces -->
+			<directory>interfaces/target</directory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+			  <outputDirectory>core</outputDirectory>
+		</fileSet>
+		<fileSet> <!--  Include the shop -->
+			<directory>shop/shop-ear/target</directory>
+			<includes>
+				<include>*.ear</include>
+			</includes>
+			<outputDirectory>core</outputDirectory>
+		</fileSet>
+		<!--  Include the products -->
+		<fileSet>
+			<directory>products/coffeeprovider-bundle/target</directory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+			<outputDirectory>products</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>products/teeprovider-bundle/target</directory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+			<outputDirectory>products</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>products/milkprovider-ejb/target</directory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+			<outputDirectory>products</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>products/sugarprovider-ejb/target</directory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+			<outputDirectory>products</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>
