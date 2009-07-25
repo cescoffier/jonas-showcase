@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.akquinet.gomobile.jonas.showcase</groupId>
+	<artifactId>jonas-showcase</artifactId>
+	<packaging>pom</packaging>
+	<name>Jonas Showcase</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>The Jonas Showcase illustrates how to use the Jonas JEE application server conjointely with OSGi</description>
+	<inceptionYear>2009</inceptionYear>
+	<organization>
+		<name>akquinet</name>
+		<url>http://akquinet.de/en</url>
+	</organization>
+	<modules>
+		<module>interfaces</module>
+		<module>shop</module>
+		<module>products</module>
+		<!-- <module>jonas_apps_bundle.coffeeservice</module>
+		<module>jonas_apps_bundle.teaservice</module>
+		<module>app_jonas_ejb_condiment_sugar</module>
+		<module>app_jonas_ejb_condiment_milk</module>
+		<module>jonas_apps_bundle_shopadditions</module>  -->
+	</modules>
+
+	<build>
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<configuration>
+					<ejbVersion>3.0</ejbVersion>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.jms</groupId>
+				<artifactId>jms</artifactId>
+				<version>1.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.annotation</groupId>
+				<artifactId>jsr250-api</artifactId>
+				<version>1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.14</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.osgi.core</artifactId>
+				<version>1.2.0</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>apache.snapshots</id>
+			<name>snapshot plugins</name>
+			<url> http://people.apache.org/repo/m2-snapshot-repository</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>easybeans-all</id>
+			<name>easybeans-all</name>
+			<url>http://maven.ow2.org/maven2/org/ow2/easybeans</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>easybeans-all</id>
+			<name>easybeans-all</name>
+			<url>http://maven.ow2.org/maven2/org/ow2/easybeans</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
