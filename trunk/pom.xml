@@ -16,11 +16,6 @@
 		<module>interfaces</module>
 		<module>shop</module>
 		<module>products</module>
-		<!-- <module>jonas_apps_bundle.coffeeservice</module>
-		<module>jonas_apps_bundle.teaservice</module>
-		<module>app_jonas_ejb_condiment_sugar</module>
-		<module>app_jonas_ejb_condiment_milk</module>
-		<module>jonas_apps_bundle_shopadditions</module>  -->
 	</modules>
 
 	<build>
@@ -48,6 +43,19 @@
 
 		</plugins>
 	</pluginManagement>
+
+	<plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptors>
+            <descriptor>distribution/source-distribution.xml</descriptor>
+            <descriptor>distribution/binaries-distribution.xml</descriptor>
+          </descriptors>
+        </configuration>
+      </plugin>
+    </plugins>
+
 	</build>
 
 	<dependencyManagement>
