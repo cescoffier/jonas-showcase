@@ -1,5 +1,5 @@
 #labels Phase-Deploy,Featured
-#How to run the demo using deployment plans
+# How to run the demo using deployment plans
 
 = To deploy and run the application =
 
