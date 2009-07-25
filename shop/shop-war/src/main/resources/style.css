@@ -1,0 +1,102 @@
+h1 {
+	font-family: "Arial Narrow";
+	text-align: center;
+	font-size: xx-large;
+	color: #EDEDED;
+	margin-bottom: 20px;
+}
+
+#appli {
+	width: 500px;
+	height: 470px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	margin-right: auto;
+	background-color: #666666 ;
+	padding: 10px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+body {
+	background-image:url(back.png);
+}
+
+
+#description {
+	border-width: 1px;
+	border-style: solid;
+	color: black;
+	font-style: italic;
+	padding: 10px;
+	text-align: justify;
+	background-color: silver;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+}
+
+#explaination {
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: justify;
+}
+
+#tab_container {
+	width:100%; height:380px;
+}
+
+.input {
+	font-weight: bold;
+}
+
+#addon_list {
+	width:150px;
+}
+
+.dijitTabContainerTop-container {
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+
+a {
+	color:#1980AF;
+}
+
+a:hover, a:active {
+	color:#FE9929;
+	text-decoration:none;
+}
+
+a:visited {
+	color:#1980AF;
+}
+a:link, a:visited {
+	color:#084081;
+	text-decoration:none;
+}
+
+.about {
+	padding:10px;
+	text-align: justify;
+}
+
+.logo {
+	position: relative;
+	left: 300px;
+	top:30px;
+}
+
+.coffee-cup {
+	left:440px;
+	position:relative;
+	top:-95px;
+}
+
+.title {
+	height: 60px;
+}
+

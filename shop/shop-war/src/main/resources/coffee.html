@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>Dunkin' Jonas</title>
+
+<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.3/dojo/resources/dojo.css"/>
+<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.3/dijit/themes/tundra/tundra.css"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+<script
+	djConfig="parseOnLoad:true" type="text/javascript"
+	src="http://o.aolcdn.com/dojo/1.3/dojo/dojo.xd.js">
+</script>
+
+<script type="text/javascript">
+	dojo.require("dojo.parser");
+	dojo.require("dijit.layout.ContentPane");
+	dojo.require("dijit.layout.TabContainer");
+	dojo.require("dijit.form.TextBox");
+	dojo.require("dijit.form.Button");
+	dojo.require("dijit.form.MultiSelect");
+	dojo.require("dijit.form.FilteringSelect");
+	dojo.require("dijit.Tooltip");
+	dojo.require("dijit.Dialog");
+	dojo.require("dojo.data.ItemFileReadStore");
+
+	function help() {
+		var msg = "Select your beverage and add-ons, then click on the 'order' button"
+		var dialog = new dijit.Dialog();
+		dialog.setContent(msg);
+		dialog.setAttribute("dijit.Dialog.duration", "800");
+		dialog.setAttribute("title", "Dunkin' JOnAS help");
+		dialog.show();
+		console.log("Help");
+		return false;
+	}
+
+	function submit() {
+		console.log("Submit");
+		var form = dojo.byId('command_form');
+		var command = dojo.formToJson(form);
+		console.log("Command:" + command);
+		dojo.xhrPost({
+			    url : "./CoffeeShop",
+			    content : {"command" : command },
+			    handleAs : "json",
+			    load : function(response, ioArgs) {
+					var message = response.message;
+					var success = response.success;
+					console.log("command ? : " + message + "-" + success);
+
+					if (message != "") {
+						var dialog = new dijit.Dialog();
+						var button = new dijit.form.Button({label: "Close"});
+						var handler = dojo.connect(button, "onClick", function() {
+							dialog.hide();
+							dojo.disconnect(handle);
+						});
+						var div = document.createElement('div');
+						var paragraph = document.createElement('p');
+						if (success == "true") {
+							var txt = document.createTextNode('Enjoy, ' + message);
+							paragraph.appendChild(txt);
+						} else {
+							var txt = document.createTextNode(message);
+							paragraph.appendChild(txt);
+						}
+						div.appendChild(paragraph);
+						div.appendChild(button.domNode);
+						dialog.setContent(div);
+	    				dialog.setAttribute("dijit.Dialog.duration", "800");
+						dialog.setAttribute("title", "Dunkin' JOnAS");
+		    			dialog.show();
+		    		}
+
+
+					update();
+			        return response;
+	    		},
+		    	error : function(response, ioArgs) {
+		    		console.log("error ? : " + response + " " + ioArgs);
+		        	return response;
+    			}
+		});
+		return false;
+	}
+
+	function update() {
+   		dojo.xhrGet({
+   	    url : "./CoffeeShop",
+   	    content : {type:"beverages"},
+        handleAs: "json",
+       	load : function(response, ioArgs) {
+            console.log("successful xhrGet", response, ioArgs);
+        	updateBeverages(response);
+            return response; //always return the response back
+        },
+        // Run this function if the request is not successful
+        error : function(response, ioArgs) {
+            console.log("failed xhrGet", response, ioArgs);
+            return response; //always return the response back
+        }
+    	});
+
+    	dojo.xhrGet({
+   	    url : "./CoffeeShop",
+   	    content : {type:"condiments"},
+        handleAs: "json",
+       	load : function(response, ioArgs) {
+        	updateCondiments(response);
+            return response; //always return the response back
+        },
+        error : function(response, ioArgs) {
+            console.log("failed xhrGet", response, ioArgs);
+            return response; //always return the response back
+        }
+    	});
+    }
+
+
+	function updateBeverages(response) {
+		var store = new dojo.data.ItemFileReadStore({data: response});
+		var request = store.fetch({query: {name:"*"}, queryOptions: {ignoreCase: true}});
+		dijit.byId('beverage_list').store = store;
+	}
+
+	function updateCondiments(response) {
+		var store = new dojo.data.ItemFileReadStore({data: response});
+		var populate= function(items, request){
+			console.log("Fetch completed");
+                var ms = dojo.byId('addon_list');
+                // Remove children
+                if ( ms.hasChildNodes() ) {
+				    while (ms.childNodes.length >= 1 ) {
+				        ms.removeChild( ms.firstChild );
+    				}
+				}
+
+                for (var a = 0; a < items.length; a++) {
+                        // Append new element to select defined in html and store reference to it
+                        var n = ms.appendChild(document.createElement('option'));
+                        // Set values to reference option node
+                        // vltype and name are arbitrary and should correspond to attributes used
+                        n.value = items[a].value;
+                        n.innerHTML = items[a].name;
+                }
+        }
+		var request = store.fetch({query: {name:"*"}, queryOptions: {ignoreCase: true}, onComplete: populate});
+	}
+
+
+	dojo.addOnLoad(function() {
+		update();
+	});
+</script>
+
+</head>
+
+<body class="tundra">
+
+<div id="appli">
+<div class="title">
+<h1>Dunkin' JOnAS</h1>
+<img class="coffee-cup" src="coffee.png"/>
+</div>
+
+
+<div id="tab_container" dojoType="dijit.layout.TabContainer" preload="true">
+
+
+<!-- Tab 1 -->
+<div dojoType="dijit.layout.ContentPane" title="Dunkin' JOnAS" href="command.html">
+</div> <!-- End of TAB 1 -->
+
+<!-- TAB 2 -->
+<div dojoType="dijit.layout.ContentPane" title="About Us" href="about.html">
+</div> <!-- End of TAB 2 -->
+
+</div> <!-- End of the TabPane -->
+</div> <!-- End of appli -->
+</body>
+
+
+</html>

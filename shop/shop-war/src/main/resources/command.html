@@ -1,0 +1,42 @@
+<p id="description">
+Welcome to the Dunkin' JoNAS. This simple shop is a part of the Jonas Showcase Series developed by <a href="http://www.akquinet.com/en/content/java-sap/mobile-solutions-und-osgi.html">akquinet</a>. This is not intended to be used directly, it just illustrates OSGi / JEE
+interactions inside JOnAS. <br/>
+</p>
+<p id="explaination">
+The beverages and add-ons listed below are deployed separately from the shop core. Provided products are exposed as OSGi services and so dynamically discovered.
+</p>
+
+
+<form id="command_form" action="#" method="post">
+<table cellpadding="5px" cellspacing="5px">
+<tr>
+<td class="input">Beverage:</td>
+<td><select id="beverage_list" name="beverage" dojoType="dijit.form.FilteringSelect" autoComplete="true">
+</select></td>
+</tr>
+<tr>
+<td valign="top" class="input">Add-Ons:</td>
+<td valign="bottom">
+<select id="addon_list" multiple="multiple" name="addon" dojoType="dijit.form.MultiSelect">
+</select></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<button id="order" dojoType="dijit.form.Button" onclick="javascript:submit()">Order</button>
+<button dojoType="dijit.form.Button" onclick="javascript:help()">Help</button>
+<button dojoType="dijit.form.Button" onclick="javascript:update()">Update</button>
+</td>
+</table>
+
+</form>
+
+<div dojoType="dijit.Tooltip" connectId="beverage_list">
+Select your beverage.</br>
+Listed ones are available <b>when</b> the page was loaded.
+</div>
+
+<div dojoType="dijit.Tooltip" connectId="addon_list">
+Select your addons. Multiple selection is possible.<br/>
+Listed ones are available <b>when</b> the page was loaded.
+</div>
