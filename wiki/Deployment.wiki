@@ -11,10 +11,10 @@
 
 == Deploy and Run ==
 
-* 1. Drop the repositories.xml file in the 'deploy' folder of your JOnAS instance
-* 2. Drop the shop.xml file in the 'deploy' folder of your JOnAS instance
-* 3. Open your browser to http://localhost:9000/showcase/coffee.html (no product are * provided)
-* 4. Deploy products by dropping products deployment plans into the 'deploy' folder
-* 5. Click on the 'update' button of the web page to update the list of available product
+ * 1. Drop the repositories.xml file in the 'deploy' folder of your JOnAS instance
+ * 2. Drop the shop.xml file in the 'deploy' folder of your JOnAS instance
+ * 3. Open your browser to http://localhost:9000/showcase/coffee.html (no products are  provided by default)
+ * 4. Deploy products by dropping products deployment plans into the 'deploy' folder
+ * 5. Click on the 'update' button of the web page to update the list of available product
 
-6. If you remove products deployment plans, products will be withdrawn from the application.
+ * 6. If you remove products deployment plans, products will be withdrawn from the application.
