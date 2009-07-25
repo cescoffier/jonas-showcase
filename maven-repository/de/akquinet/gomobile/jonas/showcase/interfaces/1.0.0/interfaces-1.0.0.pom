@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+  	<groupId>de.akquinet.gomobile.jonas.showcase</groupId>
+  	<artifactId>jonas-showcase</artifactId>
+  	<version>1.0.0</version>
+  	<relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>interfaces</artifactId>
+  <name>Jonas Showcase Interfaces</name>
+  <packaging>bundle</packaging>
+
+
+  <url>http://akquinet.de</url>
+  <description>
+  This bundle contains interfaces used by the shop and products providers.
+  </description>
+
+   <dependencies>
+  	<dependency>
+  		<groupId>org.ow2.easybeans</groupId>
+  		<artifactId>easybeans-all</artifactId>
+  		<version>1.1.0-RC2</version>
+  		<scope>provided</scope>
+   	</dependency>
+	<dependency>
+	  <groupId>org.ow2.easybeans.osgi</groupId>
+	  <artifactId>easybeans-osgi-annotations</artifactId>
+	  <version>1.1.0-RC2</version>
+	  <scope>provided</scope>
+	</dependency>
+  </dependencies>
+
+  	<build>
+	<plugins>
+			<plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+				  <source>1.5</source>
+				  <target>1.5</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <version>1.4.3</version>
+            <extensions>true</extensions>
+            <configuration>
+                <instructions>
+                    <Bundle-SymbolicName>
+                        ${pom.artifactId}
+                    </Bundle-SymbolicName>
+                    <Export-Package>de.akquinet.gomobile.jonas.showcase.shop.interfaces</Export-Package>
+                </instructions>
+            </configuration>
+        </plugin>
+     </plugins>
+	</build>
+
+</project>
+
