@@ -1,4 +1,4 @@
-#summary How to run the demo using deployment plans
+#summary How to run the demo using deployment plans.
 #labels Phase-Deploy,Featured
 
 = To deploy and run the application =
@@ -7,7 +7,7 @@
 
 * Download and install the JOnAS application server from [http://wiki.jonas.ow2.org/xwiki/bin/view/Main/WebHome]
 * Launch a JOnAS instance
-* Download the deployment plans of the application
+* Download the deployment plans of the [http://jonas-showcase.googlecode.com/files/jonas-showcase-1.0.0-deployment-plans.zip application]
 
 == Deploy and Run ==
 
