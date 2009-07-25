@@ -5,13 +5,48 @@
 	<artifactId>jonas-showcase</artifactId>
 	<packaging>pom</packaging>
 	<name>Jonas Showcase</name>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<description>The Jonas Showcase illustrates how to use the Jonas JEE application server conjointely with OSGi</description>
 	<inceptionYear>2009</inceptionYear>
 	<organization>
 		<name>akquinet</name>
 		<url>http://akquinet.de/en</url>
 	</organization>
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>clement</id>
+			<name>Clement Escoffier</name>
+			<email>clement.escoffier@akquinet.de</email>
+			<organization>akquinet</organization>
+			<organizationUrl>http://akquinet.de</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>-1</timezone>
+		</developer>
+		<developer>
+			<id>alfred</id>
+			<name>Alfred Lutz</name>
+			<email>alfred.lutz@akquinet.de</email>
+			<organization>akquinet</organization>
+			<organizationUrl>http://akquinet.de</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>-1</timezone>
+		</developer>
+	</developers>
+
 	<modules>
 		<module>interfaces</module>
 		<module>shop</module>
@@ -40,7 +75,12 @@
 					</archive>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<remoteOBR>repository</remoteOBR>
+				</configuration>
+			</plugin>
 		</plugins>
 	</pluginManagement>
 
@@ -51,10 +91,19 @@
           <descriptors>
             <descriptor>distribution/source-distribution.xml</descriptor>
             <descriptor>distribution/binaries-distribution.xml</descriptor>
+            <descriptor>distribution/deployment-distribution.xml</descriptor>
           </descriptors>
         </configuration>
       </plugin>
     </plugins>
+
+	<extensions>
+		<extension>
+			<groupId>org.jvnet.wagon-svn</groupId>
+			<artifactId>wagon-svn</artifactId>
+			<version>1.8</version>
+		</extension>
+	</extensions>
 
 	</build>
 
@@ -93,6 +142,23 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>googlecode</id>
+			<name>JOnAS Showcase Repository</name>
+			<url>svn:https://jonas-showcase.googlecode.com/svn/maven-repository</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>googlecode</id>
+			<name>JOnAS Showcase Repository (Snapshots)</name>
+			<url>svn:https://jonas-showcase.googlecode.com/svn/maven-repository</url>
+			<layout>default</layout>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<repositories>
 		<repository>
 			<id>apache.snapshots</id>
@@ -116,6 +182,11 @@
 				<enabled>true</enabled>
 			</releases>
 		</repository>
+		<repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
 	</repositories>
 
 	<pluginRepositories>
