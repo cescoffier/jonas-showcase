@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<repository lastmodified="20090725191324.240" name="MyRepository">
+<resource id="interfaces/1.0.0" presentationname="Jonas Showcase Interfaces" symbolicname="interfaces" uri="de/akquinet/gomobile/jonas/showcase/interfaces/1.0.0/interfaces-1.0.0.jar" version="1.0.0">
+<description>This bundle contains interfaces used by the shop and products providers.</description>
+<size>4504</size>
+<documentation>http://akquinet.de/en</documentation>
+<license>http://www.apache.org/licenses/LICENSE-2.0.txt</license>
+<category id="de.akquinet.gomobile.jonas.showcase"/>
+<capability name="bundle">
+<p n="manifestversion" v="2"/>
+<p n="presentationname" v="Jonas Showcase Interfaces"/>
+<p n="symbolicname" v="interfaces"/>
+<p n="version" t="version" v="1.0.0"/>
+</capability>
+<capability name="package">
+<p n="package" v="de.akquinet.gomobile.jonas.showcase.shop.interfaces"/>
+<p n="version" t="version" v="0.0.0"/>
+</capability>
+<require extend="false" filter="(&amp;(package=de.akquinet.gomobile.jonas.showcase.shop.interfaces)(version&gt;=0.0.0))" multiple="false" name="package" optional="false">Import package de.akquinet.gomobile.jonas.showcase.shop.interfaces</require>
+</resource>
+</repository>
