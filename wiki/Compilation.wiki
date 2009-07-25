@@ -1,0 +1,22 @@
+#summary How to compile the showcase.
+#labels Phase-Implementation,Phase-Deploy
+
+= Preliminaries =
+
+The build process is based on [http://maven.apache.org/ Maven]. So before building the application, you need to install and configure Maven.
+
+= Getting the sources =
+
+Once Maven is installed, download the sources, either from the [http://jonas-showcase.googlecode.com/files/jonas-showcase-1.0.0-src.zip download section] or by "checkouting" the code from svn with the following command:
+
+{{{svn checkout http://jonas-showcase.googlecode.com/svn/trunk/}}}
+
+= Compilation =
+
+Once downloaded, execute the following command:
+
+{{{mvn clean install}}}
+
+This will build the modules composing the applications. 
+
+
