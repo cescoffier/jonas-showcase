@@ -7,7 +7,6 @@ The project is under the Apache License 2.
 
 = Notice =
 
-{{{
 JOnAS Showcase
 Copyright 2009 akquinet
 
@@ -35,10 +34,10 @@ Licensed under LGPL 2.1.
 III. License Summary
 - Apache License 2.0
 - LGPL 2.1
-}}}
+
 
 = License =
-{{{
+
 
                                  Apache License
                            Version 2.0, January 2004
@@ -241,4 +240,3 @@ III. License Summary
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-}}}
