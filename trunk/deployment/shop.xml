@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <deployment-plan xmlns="http://jonas.ow2.org/ns/deployment-plan/1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:m2="http://jonas.ow2.org/ns/deployment-plan/maven2/1.0">
+
+    <deployment xsi:type="m2:maven2-deploymentType" id="interfaces">
+      <m2:groupId>de.akquinet.gomobile.jonas.showcase</m2:groupId>
+      <m2:artifactId>interfaces</m2:artifactId>
+      <m2:version>1.0.0</m2:version>
+    </deployment>
+
+    <deployment xsi:type="m2:maven2-deploymentType" id="shop">
+ 	   <m2:groupId>de.akquinet.gomobile.jonas.showcase</m2:groupId>
+       <m2:artifactId>shop-ear</m2:artifactId>
+      <m2:version>1.0.0</m2:version>
+      <m2:type>ear</m2:type>
+    </deployment>
+
+  </deployment-plan>

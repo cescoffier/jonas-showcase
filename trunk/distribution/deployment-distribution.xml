@@ -1,5 +1,5 @@
 <assembly>
-  <id>src</id>
+  <id>deployment-plans</id>
   <formats>
     <format>tar.gz</format>
     <format>zip</format>
@@ -7,17 +7,19 @@
   <fileSets>
     <fileSet>
       <includes>
-        <include>**/README*</include>
         <include>**/LICENSE*</include>
         <include>**/NOTICE*</include>
-        <include>**/pom.xml</include>
-        <include>**/src/**</include>
       </includes>
-      <excludes>
-      	<exclude>**/target*</exclude>
-      	<exclude>target</exclude>
-      </excludes>
       <useDefaultExcludes>true</useDefaultExcludes>
+      <outputDirectory>.</outputDirectory>
     </fileSet>
+    <fileSet>
+		<directory>deployment</directory>
+		<includes>
+			<include>**/README*</include>
+			<include>*.xml</include>
+		</includes>
+		<outputDirectory>.</outputDirectory>
+	</fileSet>
  </fileSets>
 </assembly>
